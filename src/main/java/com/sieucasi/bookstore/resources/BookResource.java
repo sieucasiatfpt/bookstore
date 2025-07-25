@@ -32,4 +32,11 @@ public class BookResource {
         
         return list;
     }
+    
+    @GET
+    @Path("one")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Book getABook() {
+        return new Book("6911225907262", "Tuổi Trẻ Đáng Giá Bao Nhiêu", "Rosie Nguyễn", 2, 2018);
+    }
 }

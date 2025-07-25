@@ -7,6 +7,7 @@ package com.sieucasi.bookstore.resources;
 import com.sieucasi.bookstore.model.Book;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import java.util.ArrayList;
@@ -38,5 +39,13 @@ public class BookResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Book getABook() {
         return new Book("6911225907262", "Tuổi Trẻ Đáng Giá Bao Nhiêu", "Rosie Nguyễn", 2, 2018);
+    }
+    
+    @GET
+    @Path("{isbn}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Book getBy(@PathParam("isbn") String isbn) {
+        System.out.println("Test path-param value: " + isbn);
+        return new Book(isbn, "Tuổi Trẻ Đáng Giá Bao Nhiêu", "Rosie Nguyễn", 2, 2018);
     }
 }
